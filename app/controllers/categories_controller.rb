@@ -25,8 +25,8 @@ class CategoriesController < ApplicationController
       flash[:success] = "Saved"
       redirect_to @category
     else
-      flash[:danger] = "Cannot save"
-      render new
+      # flash[:danger] = "Cannot save"
+      render "new"
     end
   end
 
@@ -37,8 +37,8 @@ class CategoriesController < ApplicationController
       flash[:success] = "Updated"
       redirect_to @category
     else
-      flash[:danger] = "Cannot save"
-      render edit
+      # flash[:danger] = "Cannot save"
+      render "edit"
     end
   end
 
@@ -49,7 +49,7 @@ class CategoriesController < ApplicationController
       flash[:success] = "Deleted category"
       redirect_to categories_path
     else
-      flash[:danger] = "Cannot save"
+      flash[:danger] = "Cannot delete"
       redirect_back(fallback_location: :fallback_location)
     end
   end
