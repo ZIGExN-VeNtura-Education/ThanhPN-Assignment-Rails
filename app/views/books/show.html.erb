@@ -1,0 +1,55 @@
+<% provide(:title, 'Book information') %>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading text-center">
+        <h1 class="text-uppercase"><%= @book.title %></h1>
+      </div>
+      <div class="panel-body text-center">
+        <%= default_book_image_tag(@book, class: "book-card-image", loading: "lazy") %>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Information
+      </div>
+      <div class="panel-body">
+        <table class="table table-bordered">
+          <tr>
+            <td>Title</td>
+            <td><%= @book.title %></td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td><%= @book.status.upcase %></td>
+          </tr>
+          <tr>
+            <td>Categories</td>
+            <td>
+              <% @book.categories.each do |cate| %>
+                <span class="label label-category label-<%= Category.colors[cate.color] %>">
+                  <%= link_to cate.title, category_path(cate.id), class: "non-decoration" %>
+                </span>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td>Content</td>
+            <td><%= @book.content %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="text-right">
+      <%= link_to "Create", new_book_path, class: "btn btn-primary #{manager_disabled_class}" %>
+      <%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-success #{manager_disabled_class}" %>
+      <%= link_to "Delete", book_path(@book.id), method: :delete, class: "btn btn-danger #{manager_disabled_class}"%>
+
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+.book-h1 {
+  font-size: xxx-large;
+  text-transform: uppercase;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.book-card-image {
+  width: 300px;
+  aspect-ratio: 6/8;
+}
+
+.book-float-right {
+  float: right;
+}
+
+.button_action {
+  margin: 2px;
+}
+
+.non-decoration {
+  text-decoration: none;
+  color: #F7F7F7;
+}
+
+.shared-links {
+  margin-top: 10px;
+}
+
+.alert-alert {
+  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+}
+
+.alert-notice {
+  @include alert-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text);
+}

@@ -1,0 +1,33 @@
+<% provide(:title, "List users") %>
+
+<%= render "shared/title" %>
+
+<div class="row">
+  <table class="table table-bordered">
+    <thead class="thead">
+    <tr>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Promote action</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.role.upcase %></td>
+        <td>
+          <% User.roles.keys.each do |key| %>
+            <%= render 'shared/button', method: :patch, path: admin_user_path(user.id), id: user.id, current: user.role, status: key, value: key %>
+
+          <% end %>
+        </td>
+        <td><%= link_to "Delete", admin_user_path(user.id), method: :delete, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @users %>
+
+</div>

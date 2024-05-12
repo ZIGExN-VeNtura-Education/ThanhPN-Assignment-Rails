@@ -1,0 +1,8 @@
+<% method = :post if method.nil? %>
+
+<%= form_with url: path, method: method, class: "pull-left button_action" do |f| %>
+  <%= f.hidden_field :id, value: id %>
+  <%= f.hidden_field :value, value: value %>
+  <% @check = current === value %>
+  <%= f.submit status.capitalize, class: "btn btn-primary", disabled: @check %>
+<% end %>

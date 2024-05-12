@@ -1,0 +1,31 @@
+<%= render 'shared/error', object: @book %>
+
+<%= form_with model: @book, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :content %>
+    <%= f.text_area :content, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, accept: %w[image/png image/jpg image/jpeg] %>
+  </div>
+  <div class="form-group">
+    <%= f.label :status %>
+    <div>
+      <%= f.radio_button :status, :published %>
+      <%= f.label :published, "Published" %>
+      <%= f.radio_button :status, :draft %>
+      <%= f.label :draft, "Draft" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :categories %>
+    <%= f.select :categories, Category.all.collect { |cate| [cate.title, cate.id] }, {selected: @categories_selected}, multiple: true, class: "form-control" %>
+    <%#= f.collection_select(:categories, Category.all, :id, :title,{}, selected: @categories, include_blank: false, multiple: true, class: "form-control" }) %>
+  </div>
+  <%= f.submit "Create book", class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,29 @@
+<%= provide(:title, Category) %>
+<div class="text-center">
+  <h1 class="text-uppercase">categories</h1>
+</div>
+
+<div>
+  <%= link_to "Create new category", new_category_url, class: "btn btn-success #{admin_disabled_class}" %>
+</div>
+<br/>
+<table class="table table-bordered">
+  <thead class="thead">
+  <tr>
+    <th>Name</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody class="tbody">
+    <% @categories.each do |cate| %>
+      <tr>
+        <td><%= link_to cate.title, category_path(cate.id) %></td>
+        <td>
+          <%= link_to "Edit", edit_category_path(cate.id), class: "btn btn-danger #{admin_disabled_class}"%>
+          <%= link_to "Delete", category_path(cate.id),method: :delete, class: "btn btn-danger #{admin_disabled_class}"%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>

@@ -1,0 +1,24 @@
+<% provide(:title, 'Home') %>
+<div class="book-dashboard">
+  <div class="text-center">
+    <h1 class="text-uppercase">List books</h1>
+    <%= form_with url: dashboards_path, method: :get, class: "form-inline" do |f| %>
+      <div class="form-group">
+        <%= f.label :search, class: "sr-only" %>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-search"></span>
+          </div>
+          <%= f.text_field :search, class: "form-control" %>
+        </div>
+        <%= f.submit "Search", class: "btn" %>
+      </div>
+    <% end %>
+  </div>
+  <br/>
+  <div class="row">
+    <%= render @books %>
+
+  </div>
+  <%= will_paginate @books, class: "book-float-right", params: { controller: :dashboards, action: :show } %>
+</div>

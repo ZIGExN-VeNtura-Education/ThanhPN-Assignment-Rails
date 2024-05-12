@@ -1,0 +1,10 @@
+<div class="col-md-4 book-card" id=<%= book.id %>>
+  <div class="panel panel-default">
+    <div class="panel-heading text-center">
+      <%= link_to book.title, book_path(book.id) %>
+    </div>
+    <div class="panel-body text-center">
+      <%= default_book_image_tag(book, class: "book-card-image", loading: "lazy") %>
+    </div>
+  </div>
+</div>
