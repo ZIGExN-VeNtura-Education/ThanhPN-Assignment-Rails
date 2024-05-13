@@ -15,7 +15,9 @@ Things you may want to cover:
 
 * Configuration: setup file database.yml follow your db
 
-* Database creation: none
+* Database creation: 
+
+![Database design](/db/DbDesign.png)
 
 * Database initialization: none
 
