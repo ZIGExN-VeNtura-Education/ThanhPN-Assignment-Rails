@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2024_05_11_125104) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "color"
+    t.string "color", default: "default"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
