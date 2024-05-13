@@ -7,5 +7,6 @@ class CreateBooks < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+    change_column :books, :status, :integer, default: :draft
   end
 end

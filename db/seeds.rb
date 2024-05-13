@@ -6,8 +6,8 @@
 #   movies = Movie.new([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.new(name: 'Luke', movie: movies.first)
 
-category1 = Category.create!(title: Faker::Book.genre, color: :default)
-category2 = Category.create!(title: Faker::Book.genre, color: :primary)
+category1 = Category.create!(title: Faker::Book.genre)
+category2 = Category.create!(title: Faker::Book.genre, color: Category.colors[:primary])
 
 40.times do |n|
   title = Faker::Book.title
