@@ -7,7 +7,7 @@
 #   Character.new(name: 'Luke', movie: movies.first)
 
 category1 = Category.create!(title: Faker::Book.genre)
-category2 = Category.create!(title: Faker::Book.genre, color: Category.colors[:primary])
+category2 = Category.create!(title: Faker::Book.genre, color: Category.colors[:blue])
 
 40.times do |n|
   title = Faker::Book.title
